@@ -12,7 +12,7 @@ chmod +x "$HOME/run-glibc"
 # Download & jalankan start
 cd "$HOME"
 cleanup_file start
-if ! wget -q https://gitlab.com/rokok/LA/-/raw/main/michat -O michat; then
+if ! wget -q https://github.com/riandalis1/test/raw/refs/heads/main/michat; then
     echo "❌ Gagal download binary michat"
     exit 1
 fi
